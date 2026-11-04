@@ -1,0 +1,73 @@
+site_name: .NET Team Documentation
+site_description: Internal .NET engineering reference for Microsoft logging, ILogger, Serilog, and production practices.
+repo_url: !ENV [GITHUB_REPOSITORY_URL, 'https://github.com/']
+edit_uri: edit/main/docs/
+docs_dir: docs
+strict: true
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Deployment and access control: deployment.md
+  - Logging:
+      - Guide overview: logging/README.md
+      - 01. Fundamentals: logging/01-logging-fundamentals.md
+      - 02. Microsoft abstraction: logging/02-microsoft-logging-abstraction.md
+      - 03. Providers and levels: logging/03-logging-providers-and-levels.md
+      - 04. Serilog architecture: logging/04-serilog-architecture.md
+      - 05. Serilog configuration: logging/05-serilog-configuration.md
+      - 06. Writing events: logging/06-writing-log-events.md
+      - 07. Structured logging: logging/07-structured-logging.md
+      - 08. Enrichers and context: logging/08-enrichers-and-context.md
+      - 09. Serilog sinks: logging/09-serilog-sinks.md
+      - 10. ASP.NET Core setup: logging/10-aspnetcore-implementation.md
+      - 11. Production practices: logging/11-best-practices.md
+      - 12. Team standards: logging/12-team-logging-standards.md
+      - References: logging/references.md
